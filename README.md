@@ -2,7 +2,7 @@
 
 A modern, responsive Single Page Application (SPA) built entirely in **C#** using **Blazor WebAssembly**. This project serves as a live portfolio that dynamically fetches project data from the **GitHub REST API** and is deployed via a fully automated CI/CD pipeline to **Azure Static Web Apps**.
 
-**Live Demo:** [INSERT YOUR LIVE URL HERE]
+**Live Demo:** [https://red-rock-0fc890e10.2.azurestaticapps.net/]
 
 ---
 
