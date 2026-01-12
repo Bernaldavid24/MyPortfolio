@@ -3,30 +3,67 @@
 @using MyPortfolio.Models
 @inject PortfolioService GitHub
 
-<PageTitle>My Portfolio</PageTitle>
+<PageTitle>David Bernal | Software Engineer</PageTitle>
 
-<div class="container mt-5">
-    <div class="text-center mb-5">
-        <h1>🚀 My Code Portfolio</h1>
-        <p class="lead">Live projects fetched from my GitHub.</p>
+<div class="bg-light p-5 rounded-3 mb-5 shadow-sm">
+    <div class="container-fluid py-2">
+        <div class="row align-items-center">
+            <div class="col-md-8 text-center text-md-start">
+                <h1 class="display-4 fw-bold text-dark mb-3">David Bernal</h1>
+                <h4 class="text-secondary mb-4">Software Engineer | .NET & Azure Specialist</h4>
+                <p class="fs-5 text-muted mb-4">
+                    I build mission-critical distributed systems and cloud-native applications. 
+                    Currently supporting <strong>NASA</strong> missions with reliable engineering and automation.
+                </p>
+                
+                <div class="d-flex gap-3 justify-content-center justify-content-md-start">
+                    <a href="resume" class="btn btn-primary btn-lg">
+                        <i class="bi bi-file-earmark-text me-2"></i>View Resume
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/YOUR-LINKEDIN-HANDLE/" target="_blank" class="btn btn-outline-primary btn-lg" title="Connect on LinkedIn">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+
+                    <a href="contact" class="btn btn-outline-dark btn-lg">
+                        <i class="bi bi-envelope me-2"></i>Contact
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4 text-center mt-4 mt-md-0">
+                <img src="images/profile.jpg" 
+                     onerror="this.style.display='none'" 
+                     alt="David Bernal" 
+                     class="img-fluid rounded-circle shadow-lg" 
+                     style="width: 220px; height: 220px; object-fit: cover; border: 5px solid white;">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="d-flex align-items-center mb-4 border-bottom pb-2">
+        <h3 class="fw-bold mb-0 me-3">
+            <i class="bi bi-grid-fill me-2 text-primary"></i>Featured Projects
+        </h3>
+        <span class="text-muted small ms-auto">Source: GitHub API</span>
     </div>
 
     @if (!string.IsNullOrEmpty(errorMessage))
     {
-        <div class="alert alert-danger text-center">
-            <strong>⚠️ Error Loading Projects:</strong><br />
-            @errorMessage
-            <br /><br />
-            <small>Check your username in <code>Home.razor</code>!</small>
+        <div class="alert alert-danger d-flex align-items-center">
+            <i class="bi bi-exclamation-triangle-fill me-3 fs-4"></i>
+            <div>
+                <strong>Error loading data:</strong> @errorMessage
+            </div>
         </div>
     }
     else if (projects == null)
     {
-        <div class="text-center">
-            <div class="spinner-border text-primary" role="status">
-                <span class="visually-hidden">Loading...</span>
-            </div>
-            <p class="mt-2">Connecting to GitHub...</p>
+        <div class="text-center py-5">
+            <div class="spinner-border text-primary" role="status"></div>
+            <p class="mt-2 text-muted">Synchronizing with GitHub...</p>
         </div>
     }
     else
@@ -34,27 +71,36 @@
         <div class="row">
             @foreach (var project in projects)
             {
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="card h-100 shadow-sm">
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100 shadow-sm border-0 hover-effect">
                         <div class="card-body">
-                            <h5 class="card-title">
-                                <a href="@project.Url" target="_blank" class="text-decoration-none">
-                                    @project.Name
-                                </a>
-                            </h5>
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h5 class="card-title fw-bold">
+                                    <a href="@project.Url" target="_blank" class="text-decoration-none text-dark stretched-link">
+                                        @project.Name
+                                    </a>
+                                </h5>
+                                <div class="d-flex align-items-center gap-1">
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <span class="fw-bold text-muted">@project.Stars</span>
+                                </div>
+                            </div>
                             
                             @if (!string.IsNullOrEmpty(project.Language))
                             {
-                                <h6 class="card-subtitle mb-2 text-muted">@project.Language</h6>
+                                <h6 class="card-subtitle mb-3 text-primary small fw-bold">
+                                    <i class="bi bi-code-slash me-1"></i>@project.Language
+                                </h6>
                             }
                             
-                            <p class="card-text">
+                            <p class="card-text text-secondary">
                                 @(string.IsNullOrEmpty(project.Description) ? "No description provided." : project.Description)
                             </p>
                         </div>
-                        <div class="card-footer bg-white d-flex justify-content-between align-items-center">
-                            <small class="text-muted">Updated: @project.LastUpdated?.ToShortDateString()</small>
-                            <span class="badge bg-warning text-dark">⭐ @project.Stars</span>
+                        <div class="card-footer bg-white border-0 text-end">
+                            <small class="text-muted">
+                                <i class="bi bi-clock me-1"></i>Updated: @project.LastUpdated?.ToShortDateString()
+                            </small>
                         </div>
                     </div>
                 </div>
@@ -62,6 +108,16 @@
         </div>
     }
 </div>
+
+<style>
+    .hover-effect {
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    }
+    .hover-effect:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 1rem 3rem rgba(0,0,0,.15)!important;
+    }
+</style>
 
 @code {
     private List<PortfolioItem>? projects;
@@ -71,12 +127,11 @@
     {
         try
         {
-            projects = await GitHub.GetPortfolioAsync("Bernaldavid24"); 
+            projects = await GitHub.GetPortfolioAsync("Bernalddavid24");
         }
         catch (Exception ex)
         {
             errorMessage = ex.Message;
-            Console.WriteLine(ex.ToString());
         }
     }
 }
