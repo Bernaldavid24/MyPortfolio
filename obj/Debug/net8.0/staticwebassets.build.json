@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "UWm85Wdlck0pOsfEwDgKDtVgRiSya3uWNujEsFKgy/Q=",
+  "Hash": "NvW+noD8U0rZK2ztIjq3HF7uOH19OYe7epr7ukxCn24=",
   "Source": "MyPortfolio",
   "BasePath": "/",
   "Mode": "Root",
@@ -7957,6 +7957,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "C:\\Users\\Offline\\Desktop\\Projects\\Github\\MyPortfolio\\wwwroot\\resume.pdf",
+      "SourceId": "MyPortfolio",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Offline\\Desktop\\Projects\\Github\\MyPortfolio\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "resume.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\resume.pdf"
     },
     {
       "Identity": "C:\\Users\\Offline\\Desktop\\Projects\\Github\\MyPortfolio\\wwwroot\\sample-data\\weather.json",

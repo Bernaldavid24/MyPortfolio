@@ -37,6 +37,10 @@
       "PackagePath": "staticwebassets\\index.html"
     },
     {
+      "Id": "C:\\Users\\Offline\\Desktop\\Projects\\Github\\MyPortfolio\\wwwroot\\resume.pdf",
+      "PackagePath": "staticwebassets\\resume.pdf"
+    },
+    {
       "Id": "C:\\Users\\Offline\\Desktop\\Projects\\Github\\MyPortfolio\\wwwroot\\sample-data\\weather.json",
       "PackagePath": "staticwebassets\\sample-data\\weather.json"
     },

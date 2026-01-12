@@ -1,5 +1,5 @@
 using Octokit;
-using MyPortfolio.Models; // Links to new model
+using MyPortfolio.Models;
 
 namespace MyPortfolio.Services;
 
@@ -9,7 +9,6 @@ public class PortfolioService
 
     public PortfolioService()
     {
-        // "MyPortfolioApp" can be any string name
         _client = new GitHubClient(new ProductHeaderValue("MyPortfolioApp"));
     }
 
@@ -18,8 +17,8 @@ public class PortfolioService
         var repos = await _client.Repository.GetAllForUser(username);
 
         return repos
-            .Where(r => !r.Fork) // Filter out forked repos if needed
-            .OrderByDescending(r => r.StargazersCount) // Show best repos first
+            .Where(r => !r.Fork) // Optional: Hide projects forked from others
+            .OrderByDescending(r => r.StargazersCount) // Show popular ones first
             .Select(r => new PortfolioItem
             {
                 Name = r.Name,

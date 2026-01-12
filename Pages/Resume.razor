@@ -1,0 +1,144 @@
+@page "/resume"
+
+<PageTitle>My Resume</PageTitle>
+
+<div class="container mt-5 mb-5" style="max-width: 900px;">
+    
+    <div class="d-flex justify-content-between align-items-center mb-5 border-bottom pb-3">
+        <div>
+            <h1 class="fw-bold display-5">David Bernal</h1>
+            <p class="text-muted fs-5 mb-0">Software Engineer | .NET & Azure Specialist</p>
+        </div>
+        <a href="resume.pdf" download class="btn btn-primary btn-lg shadow-sm">
+            <span class="bi bi-file-earmark-pdf-fill me-2"></span>Download PDF
+        </a>
+    </div>
+
+    <section class="mb-5">
+        <h3 class="text-primary fw-bold border-bottom pb-2 mb-3">Professional Summary</h3>
+        <p class="lead text-secondary">
+            Software Engineer combining mission-critical discipline with modern .NET development. Currently supporting NASA missions as a contractor, with a focus on system verification and reliable engineering. Transitioning to full-time backend development with a strong portfolio in <strong>Event-Driven Microservices, Azure Serverless, and Cloud-Native Architecture</strong>.
+        </p>
+    </section>
+
+    <section class="mb-5">
+        <h3 class="text-primary fw-bold border-bottom pb-2 mb-4">Key Technical Projects</h3>
+        
+        <div class="card mb-4 border-0 shadow-sm bg-light">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-baseline mb-2">
+                    <h5 class="fw-bold text-dark">AI-Powered Fantasy Sports Broadcaster</h5>
+                    <span class="badge bg-primary">C# | Azure OpenAI | RabbitMQ</span>
+                </div>
+                <ul class="mb-0">
+                    <li class="mb-1">Architected a distributed event-driven system using <strong>RabbitMQ</strong> to decouple Python data ingestion scrapers from C# processing workers.</li>
+                    <li class="mb-1">Integrated <strong>Azure OpenAI (GPT-4)</strong> to analyze game stats and generate dynamic, personality-driven commentary scripts.</li>
+                    <li>Implemented <strong>Azure Cognitive Services (Neural TTS)</strong> to synthesize multi-voice audio broadcasts with specific emotional tuning.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card mb-4 border-0 shadow-sm bg-light">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-baseline mb-2">
+                    <h5 class="fw-bold text-dark">Resilient Telemetry Ingestion Service</h5>
+                    <span class="badge bg-primary">C# | .NET 8 | Docker | RabbitMQ | SQL Server | Docker</span>
+                </div>
+                <ul class="mb-0">
+                    <li class="mb-1">Architected a fault-tolerant microservice system to ingest IoT telemetry data, designed to handle database outages without data loss.</li>
+                    <li class="mb-1">Engineered Reliability: Implemented a "Producer-Consumer" pattern using <strong>RabbitMQ</strong> with manual acknowledgments <strong>(autoAck: false)</strong>, ensuring 100% data persistence even during service crashes.</li>
+                    <li><strong>Containerization:</strong> Dockerized the entire stack (Sensor, Broker, Worker, Database) using Docker, reducing local environment setup time from hours to less than 5 minutes.</li>
+                    <li class="mb-1">Cloud-Native Logic: Built "Smart Configuration" logic that automatically detects execution environments (Docker vs. Localhost) and applies retry policies for robust startup.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card mb-4 border-0 shadow-sm bg-light">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-baseline mb-2">
+                    <h5 class="fw-bold text-dark">Cloud-Native Live Portfolio Dashboard</h5>
+                    <span class="badge bg-primary">Blazor WebAssembly | Azure Static Web Apps</span>
+                </div>
+                <ul class="mb-0">
+                    <li class="mb-1">Built a responsive Single Page Application (SPA) using <strong>Blazor WebAssembly</strong> and C# client-side logic.</li>
+                    <li class="mb-1">Designed a custom service layer to authenticate and consume the GitHub REST API, dynamically rendering project statistics.</li>
+                    <li>Configured a robust CI/CD pipeline using <strong>GitHub Actions</strong> to automatically build, test, and deploy to Azure Static Web Apps.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-5">
+        <h3 class="text-primary fw-bold border-bottom pb-2 mb-4">Work Experience</h3>
+        
+        <div class="mb-4">
+            <div class="d-flex justify-content-between">
+                <h5 class="fw-bold">Spacecraft Software Test Engineer</h5>
+                <span class="text-muted fw-bold">Oct 2023 - Present</span>
+            </div>
+            <p class="fst-italic text-secondary mb-2">HX5 / NASA JETS Contract | Houston, TX</p>
+            <ul>
+                <li class="mb-1"><strong>Automation:</strong> Developed Python scripts to extract project metrics from Jira/GitLab APIs, reducing weekly status reporting time by 40%.</li>
+                <li class="mb-1"><strong>System Validation:</strong> Validated spacecraft software against rigorous functional requirements, authoring JSON-based test scripts that increased regression coverage by 25%.</li>
+                <li><strong>Code Integrity:</strong> Debugged and patched legacy C code to resolve critical data structure mismatches, preventing runtime failures in simulation.</li>
+            </ul>
+        </div>
+
+        <div class="mb-4">
+            <div class="d-flex justify-content-between">
+                <h5 class="fw-bold">Software Support Engineering Intern</h5>
+                <span class="text-muted fw-bold">Jun 2023 - Aug 2023</span>
+            </div>
+            <p class="fst-italic text-secondary mb-2">Guardians of Honor / NASA Contract | Houston, TX</p>
+            <ul>
+                <li class="mb-1">Configured and validated wireless access point capabilities for spacecraft network systems using OpenWRT firmware.</li>
+                <li class="mb-1">Analyzed network traffic using Wireshark to verify wireless communication protocols and enhance compliance reliability.</li>
+                <li>Developed bash scripts to automate network testing tasks, streamlining validation processes for infrastructure.</li>
+            </ul>
+        </div>
+
+        <div class="mb-4">
+            <div class="d-flex justify-content-between">
+                <h5 class="fw-bold">Software Engineering Intern</h5>
+                <span class="text-muted fw-bold">Feb 2022 - Oct 2023</span>
+            </div>
+            <p class="fst-italic text-secondary mb-2">HX5 / NASA JETS Contract | Houston, TX</p>
+            <ul>
+                <li class="mb-1">
+                    <strong>Tooling Impact:</strong> Developed a C++ packet parser that automated the translation of hexadecimal packet dumps into human-readable text.
+                    <ul>
+                        <li class="text-muted mt-1"><strong>Impact:</strong> Saved the lab team approximately 10+ engineering hours per week, transforming a tedious manual lookup process into an instant automated workflow.</li>
+                    </ul>
+                </li>
+                <li class="mb-1">Validated theoretical network configurations using Time-Triggered Ethernet (TTE) switches for NASA customers, analyzing network behavior and presenting technical findings to stakeholders.</li>
+                <li>Maintained spacecraft avionics lab infrastructure by troubleshooting development hardware and software with limited documentation, ensuring continuous availability for testing operations.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h3 class="text-primary fw-bold border-bottom pb-2 mb-4">Education</h3>
+        <div>
+            <h5 class="fw-bold">Bachelor of Science in Computer Science</h5>
+            <p class="text-muted mb-0">Western Governors University | Graduated Nov. 2025</p>
+            <p class="small text-muted mt-1">Capstone: Machine Learning Prediction System (Python/scikit-learn)</p>
+        </div>
+    </section>
+
+    <section>
+        <h3 class="text-primary fw-bold border-bottom pb-2 mb-4">Certifications</h3>
+        <div class="mb-3">
+            <h5 class="fw-bold">AI Optimization Developer | <a href="https://wgu.badges.parchment.com/public/assertions/haaJqXZjQa-MefmTDqMclw?identity__email=dbern96@wgu.edu" target="_blank">Link</a></h5>
+            <p class="text-muted mb-0">Western Governors University | Issued: Oct. 2025</p>
+        </div>
+        <div class="mb-3">
+            <h5 class="fw-bold">ITIL 4 Foundation | Credential ID: GR671822191DB</h5>
+            <p class="text-muted mb-0">PeopleCert | Issued: Oct. 2025</p>
+        </div>
+        <div class="mb-3">
+            <h5 class="fw-bold">Linux Essentials Certification | <a href="https://lpi.org/verify/LPI000669720/wnna3nqtxw" target="_blank">Link</a></h5>
+            <p class="text-muted mb-0">Linux Professional Institute (LPI) | Issued: Oct. 2025</p>
+        </div>
+    </section>
+
+</div>

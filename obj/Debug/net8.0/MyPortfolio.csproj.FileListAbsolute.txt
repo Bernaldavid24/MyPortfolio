@@ -1034,3 +1034,4 @@ C:\Users\Offline\Desktop\Projects\Github\MyPortfolio\obj\Debug\net8.0\MyPortfoli
 C:\Users\Offline\Desktop\Projects\Github\MyPortfolio\obj\Debug\net8.0\refint\MyPortfolio.dll
 C:\Users\Offline\Desktop\Projects\Github\MyPortfolio\obj\Debug\net8.0\MyPortfolio.pdb
 C:\Users\Offline\Desktop\Projects\Github\MyPortfolio\obj\Debug\net8.0\ref\MyPortfolio.dll
+C:\Users\Offline\Desktop\Projects\Github\MyPortfolio\obj\Debug\net8.0\MyPortfolio.sourcelink.json

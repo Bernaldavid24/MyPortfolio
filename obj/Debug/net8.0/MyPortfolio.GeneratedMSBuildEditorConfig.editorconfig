@@ -26,16 +26,20 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Offline/Desktop/Projects/Github/MyPortfolio/Pages/Counter.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
+[C:/Users/Offline/Desktop/Projects/Github/MyPortfolio/Pages/Contact.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29udGFjdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Offline/Desktop/Projects/Github/MyPortfolio/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Offline/Desktop/Projects/Github/MyPortfolio/Pages/Weather.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2VhdGhlci5yYXpvcg==
+[C:/Users/Offline/Desktop/Projects/Github/MyPortfolio/Pages/Resume.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVzdW1lLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Offline/Desktop/Projects/Github/MyPortfolio/Pages/Skills.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2tpbGxzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Offline/Desktop/Projects/Github/MyPortfolio/_Imports.razor]

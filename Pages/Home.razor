@@ -1,33 +1,60 @@
 ﻿@page "/"
-@inject PortfolioService GitHubService
+@using MyPortfolio.Services
+@using MyPortfolio.Models
+@inject PortfolioService GitHub
 
 <PageTitle>My Portfolio</PageTitle>
 
 <div class="container mt-5">
     <div class="text-center mb-5">
         <h1>🚀 My Code Portfolio</h1>
-        <p class="lead">Live data fetched directly from GitHub.</p>
+        <p class="lead">Live projects fetched from my GitHub.</p>
     </div>
 
-    @if (projects == null)
+    @if (!string.IsNullOrEmpty(errorMessage))
     {
-        <p class="text-center"><em>Loading projects...</em></p>
+        <div class="alert alert-danger text-center">
+            <strong>⚠️ Error Loading Projects:</strong><br />
+            @errorMessage
+            <br /><br />
+            <small>Check your username in <code>Home.razor</code>!</small>
+        </div>
+    }
+    else if (projects == null)
+    {
+        <div class="text-center">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p class="mt-2">Connecting to GitHub...</p>
+        </div>
     }
     else
     {
         <div class="row">
             @foreach (var project in projects)
             {
-                <div class="col-md-4 mb-4">
+                <div class="col-md-6 col-lg-4 mb-4">
                     <div class="card h-100 shadow-sm">
                         <div class="card-body">
-                            <h5 class="card-title">@project.Name</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">@project.Language</h6>
-                            <p class="card-text">@project.Description</p>
+                            <h5 class="card-title">
+                                <a href="@project.Url" target="_blank" class="text-decoration-none">
+                                    @project.Name
+                                </a>
+                            </h5>
+                            
+                            @if (!string.IsNullOrEmpty(project.Language))
+                            {
+                                <h6 class="card-subtitle mb-2 text-muted">@project.Language</h6>
+                            }
+                            
+                            <p class="card-text">
+                                @(string.IsNullOrEmpty(project.Description) ? "No description provided." : project.Description)
+                            </p>
                         </div>
-                        <div class="card-footer bg-white d-flex justify-content-between">
-                            <span>⭐ @project.Stars</span>
-                            <a href="@project.Url" target="_blank" class="btn btn-sm btn-primary">View Code</a>
+                        <div class="card-footer bg-white d-flex justify-content-between align-items-center">
+                            <small class="text-muted">Updated: @project.LastUpdated?.ToShortDateString()</small>
+                            <span class="badge bg-warning text-dark">⭐ @project.Stars</span>
                         </div>
                     </div>
                 </div>
@@ -38,9 +65,18 @@
 
 @code {
     private List<PortfolioItem>? projects;
+    private string? errorMessage;
 
     protected override async Task OnInitializedAsync()
     {
-        projects = await GitHubService.GetPortfolioAsync("Bernaldavid24");
+        try
+        {
+            projects = await GitHub.GetPortfolioAsync("Bernaldavid24"); 
+        }
+        catch (Exception ex)
+        {
+            errorMessage = ex.Message;
+            Console.WriteLine(ex.ToString());
+        }
     }
 }

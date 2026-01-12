@@ -1,0 +1,31 @@
+@page "/contact"
+
+<div class="container w-50 mt-5">
+    <h3>Get in Touch</h3>
+    <EditForm Model="@contact" OnValidSubmit="@HandleSubmit">
+        <div class="mb-3">
+            <label>Email</label>
+            <InputText @bind-Value="contact.Email" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label>Message</label>
+            <InputTextArea @bind-Value="contact.Message" class="form-control" rows="4" />
+        </div>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+    </EditForm>
+</div>
+
+@code {
+    private ContactModel contact = new();
+
+    private async Task HandleSubmit()
+    {
+        Console.WriteLine($"Sending email from {contact.Email}...");
+    }
+
+    public class ContactModel
+    {
+        public string Email { get; set; }
+        public string Message { get; set; }
+    }
+}
