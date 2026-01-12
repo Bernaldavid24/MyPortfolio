@@ -1,0 +1,46 @@
+﻿@page "/"
+@inject PortfolioService GitHubService
+
+<PageTitle>My Portfolio</PageTitle>
+
+<div class="container mt-5">
+    <div class="text-center mb-5">
+        <h1>🚀 My Code Portfolio</h1>
+        <p class="lead">Live data fetched directly from GitHub.</p>
+    </div>
+
+    @if (projects == null)
+    {
+        <p class="text-center"><em>Loading projects...</em></p>
+    }
+    else
+    {
+        <div class="row">
+            @foreach (var project in projects)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">@project.Name</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">@project.Language</h6>
+                            <p class="card-text">@project.Description</p>
+                        </div>
+                        <div class="card-footer bg-white d-flex justify-content-between">
+                            <span>⭐ @project.Stars</span>
+                            <a href="@project.Url" target="_blank" class="btn btn-sm btn-primary">View Code</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+@code {
+    private List<PortfolioItem>? projects;
+
+    protected override async Task OnInitializedAsync()
+    {
+        projects = await GitHubService.GetPortfolioAsync("Bernaldavid24");
+    }
+}
